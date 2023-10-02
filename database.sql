@@ -16,12 +16,10 @@
 
 
 -- Dumping database structure for dongy_mcms
-DROP DATABASE IF EXISTS `dongy_mcms`;
 CREATE DATABASE IF NOT EXISTS `dongy_mcms` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
 USE `dongy_mcms`;
 
 -- Dumping structure for table dongy_mcms.clinic_information
-DROP TABLE IF EXISTS `clinic_information`;
 CREATE TABLE IF NOT EXISTS `clinic_information` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
@@ -38,7 +36,6 @@ CREATE TABLE IF NOT EXISTS `clinic_information` (
 -- Data exporting was unselected.
 
 -- Dumping structure for table dongy_mcms.examination_detail
-DROP TABLE IF EXISTS `examination_detail`;
 CREATE TABLE IF NOT EXISTS `examination_detail` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `patient_id` int(11) NOT NULL,
@@ -65,7 +62,6 @@ CREATE TABLE IF NOT EXISTS `examination_detail` (
 -- Data exporting was unselected.
 
 -- Dumping structure for table dongy_mcms.examination_request
-DROP TABLE IF EXISTS `examination_request`;
 CREATE TABLE IF NOT EXISTS `examination_request` (
   `id` int(11) NOT NULL,
   `patient_name` int(11) NOT NULL,
@@ -81,7 +77,6 @@ CREATE TABLE IF NOT EXISTS `examination_request` (
 -- Data exporting was unselected.
 
 -- Dumping structure for table dongy_mcms.import
-DROP TABLE IF EXISTS `import`;
 CREATE TABLE IF NOT EXISTS `import` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `item_id` int(11) NOT NULL,
@@ -97,7 +92,6 @@ CREATE TABLE IF NOT EXISTS `import` (
 -- Data exporting was unselected.
 
 -- Dumping structure for table dongy_mcms.item
-DROP TABLE IF EXISTS `item`;
 CREATE TABLE IF NOT EXISTS `item` (
   `id` int(11) NOT NULL,
   `name` int(11) NOT NULL,
@@ -113,7 +107,6 @@ CREATE TABLE IF NOT EXISTS `item` (
 -- Data exporting was unselected.
 
 -- Dumping structure for table dongy_mcms.item_type
-DROP TABLE IF EXISTS `item_type`;
 CREATE TABLE IF NOT EXISTS `item_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` int(11) NOT NULL,
@@ -124,7 +117,6 @@ CREATE TABLE IF NOT EXISTS `item_type` (
 -- Data exporting was unselected.
 
 -- Dumping structure for table dongy_mcms.patient
-DROP TABLE IF EXISTS `patient`;
 CREATE TABLE IF NOT EXISTS `patient` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
@@ -145,7 +137,6 @@ CREATE TABLE IF NOT EXISTS `patient` (
 -- Data exporting was unselected.
 
 -- Dumping structure for table dongy_mcms.prescription
-DROP TABLE IF EXISTS `prescription`;
 CREATE TABLE IF NOT EXISTS `prescription` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ed_id` int(11) NOT NULL,
@@ -158,7 +149,6 @@ CREATE TABLE IF NOT EXISTS `prescription` (
 -- Data exporting was unselected.
 
 -- Dumping structure for table dongy_mcms.provider
-DROP TABLE IF EXISTS `provider`;
 CREATE TABLE IF NOT EXISTS `provider` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
@@ -174,7 +164,6 @@ CREATE TABLE IF NOT EXISTS `provider` (
 -- Data exporting was unselected.
 
 -- Dumping structure for table dongy_mcms.user
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
