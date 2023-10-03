@@ -1,12 +1,17 @@
 -- drop database qLyPKDongY;
 create database qLyPKDongY;
 use qLyPKDongY;
+create table tblAdmin(
+	id int primary key AUTO_INCREMENT,
+	username nvarchar(30),
+    password nvarchar(30)
+);
 create table tblClinic(
 	idClinic int primary key AUTO_INCREMENT,
-	name nvarchar (100) not null,
+	name nvarchar (200) not null,
 	descript nvarchar(10000),
 	address nvarchar(200),
-    representatives nvarchar(50),
+    representatives nvarchar(200),
 	phone varchar(10),
 	status boolean,
 	createDate datetime,
@@ -14,16 +19,15 @@ create table tblClinic(
 );
 create table tblDoctor(
 	idDoctor int primary key AUTO_INCREMENT,
-    nameDoctor nvarchar(30),
-    sex nvarchar(10),
-    codeDoctorGen nvarchar(10),
+    nameDoctor nvarchar(200),
+    gender nvarchar(10),
     address nvarchar(200),
-    descriptDoctor nvarchar(200),
-    titleDoctor nvarchar(30),
-    academicRank nvarchar(30),
-    degree nvarchar(30),
+    descriptDoctor nvarchar(10000),
+    titleDoctor nvarchar(200),
+    academicRank nvarchar(200),
+    degree nvarchar(200),
     phone varchar(10),
-    avatar_path nvarchar(30),
+    avatar_path nvarchar(200),
     username nvarchar(30),
     password nvarchar(30),
     status boolean,
@@ -32,11 +36,10 @@ create table tblDoctor(
 );
 create table tblProvider(
 	idProvider int primary key AUTO_INCREMENT,
-    nameProvider nvarchar(30),
-    codeProvider nvarchar(10),
+    nameProvider nvarchar(200),
     address nvarchar(200),
     phone varchar(10),
-    representatives nvarchar(50),
+    representatives nvarchar(200),
     descript nvarchar(10000),
     status boolean,
     createDate datetime,
@@ -44,11 +47,9 @@ create table tblProvider(
 );
 create table tblItem(
 	idItem int primary key AUTO_INCREMENT,
-    nameItem nvarchar(30),
-    codeItemGen nvarchar(10),
+    nameItem nvarchar(200),
     descript nvarchar(10000),
     type varchar(10),
-    code varchar(10),
     price float,
     status boolean,
     createDate datetime,
@@ -57,8 +58,8 @@ create table tblItem(
 create table tblItemImport(
 	id int primary key AUTO_INCREMENT,
     idProvider int,
-    nameItem nvarchar(30),
-    code nvarchar(10),
+    nameItem nvarchar(200),
+    idItem nvarchar(10),
     descript nvarchar(10000),
     type varchar(10),
     price float,
@@ -70,17 +71,16 @@ create table tblItemImport(
     foreign key (idProvider) references tblProvider(idProvider)
 );
 create table tblPatient(
-	id int primary key AUTO_INCREMENT,
-    name nvarchar(30),
-    sex nvarchar(10),
+	idPatient int primary key AUTO_INCREMENT,
+    name nvarchar(200),
+    gender nvarchar(10),
     DOB datetime,
-    job nvarchar(30),
-    address nvarchar(30),
-    country nvarchar(30),
+    job nvarchar(200),
+    address nvarchar(200),
+    country nvarchar(200),
     phone varchar(10),
     identification_code varchar(20),
     status boolean,
-    codePatientGen varchar(10),
     createDate datetime,
 	updateDate datetime     
 );
@@ -88,9 +88,9 @@ create table tblMedicalExaminationAndTreatment(
 	id int primary key AUTO_INCREMENT,
     idPatient int,
     idDoctor int,
-    reasonToVisit nvarchar(200),
+    reasonToVisit nvarchar(10000),
 	receptionTime datetime,
-    foreign key (idPatient) references tblPatient(id),
+    foreign key (idPatient) references tblPatient(idPatient),
     foreign key (idDoctor) references tblDoctor(idDoctor)
 );
 create table tblMedicalExamination(
@@ -100,14 +100,14 @@ create table tblMedicalExamination(
     weight int,
     heartRate int,
     bloodPressure int,
-    otherMedicalInfor nvarchar(2000),
+    otherMedicalInfor nvarchar(10000),
     examinationTime datetime,
     foreign key (idMEAT) references tblMedicalExaminationAndTreatment(id)
 );
 create table tblDiagnosis(
 	id int primary key AUTO_INCREMENT,
     idMEAT int,
-    medicalInformation nvarchar(1000),
+    medicalInformation nvarchar(10000),
 	diagnosisTime datetime,
     foreign key (idMEAT) references tblMedicalExaminationAndTreatment(id)
 );
@@ -125,6 +125,6 @@ create table tblAdvice(
 	id int primary key AUTO_INCREMENT,
     idPrecription int,
     name nvarchar(200),
-    descript nvarchar(2000),
+    descript nvarchar(10000),
     foreign key (idPrecription) references tblPrecription(id)
 );
